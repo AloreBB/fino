@@ -1,0 +1,136 @@
+:root {
+  --ink: #1a2350;
+  --ink-soft: #4a5383;
+  --paper: #e6eaf7;
+  --sheet: #fbfcff;
+  --rule: #c3cbe6;
+  --marker: #ffd84a;
+  --negative: #c4242f;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.55 "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+p { text-wrap: pretty; }
+a { color: inherit; text-underline-offset: 0.2em; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+h1, h2, .brand { font-family: "Bricolage Grotesque", system-ui, sans-serif; }
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 4vw, 3rem);
+}
+.brand { margin: 0 0 2rem; font-size: 1.5rem; font-weight: 800; }
+.brand a { text-decoration: none; }
+.hero h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+.lede { max-width: 34rem; margin: 0 0 1.5rem; font-size: 1.25rem; }
+.status { max-width: 34rem; margin: 0; color: var(--ink-soft); }
+
+.sheet {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--sheet);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgb(26 35 80 / 0.12), 0 18px 40px -12px rgb(26 35 80 / 0.28);
+}
+.sheet h2 { margin: 0; font-size: 1.5rem; font-weight: 800; }
+.hint { margin: 0.25rem 0 1rem; color: var(--ink-soft); font-size: 0.9375rem; }
+.moves { margin: 0; padding: 0; list-style: none; }
+.moves li { border-bottom: 1px solid var(--rule); }
+.moves button {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.25rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 120ms var(--ease-out);
+}
+.moves button:active { transform: scale(0.985); }
+.moves button::before {
+  content: "";
+  position: absolute;
+  inset: 14% 0;
+  z-index: -1;
+  background: var(--marker);
+  transform: scaleX(0);
+  transform-origin: left;
+  /* Removing the mark answers faster than drawing it. */
+  transition: transform 130ms var(--ease-out);
+}
+.moves button[aria-pressed="true"]::before {
+  transform: scaleX(1);
+  transition-duration: 240ms;
+}
+.amount, .totals dd { font-family: "Bricolage Grotesque", system-ui, sans-serif; font-variant-numeric: tabular-nums; font-weight: 500; }
+.totals { margin: 1.25rem 0 0; }
+.totals div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.15rem 0.25rem; }
+.totals dt { color: var(--ink-soft); }
+.totals dd { margin: 0; font-weight: 800; }
+.totals .big { font-family: "Bricolage Grotesque", system-ui, sans-serif; font-size: 1.375rem; font-weight: 800; }
+.totals .big dt { color: var(--ink); }
+.totals .big:first-of-type { margin-top: 0.5rem; }
+.totals dd.negative { color: var(--negative); }
+
+.points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3.5rem) clamp(2rem, 6vw, 6rem);
+  padding: clamp(2.5rem, 6vw, 5rem) max(clamp(1rem, 4vw, 3rem), calc((100vw - 70rem) / 2));
+  background: var(--ink);
+  color: var(--paper);
+}
+.points h2 { margin: 0 0 0.5rem; font-size: 1.625rem; font-weight: 800; line-height: 1.15; }
+.points p { max-width: 32rem; margin: 0; }
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 1.5rem clamp(1rem, 4vw, 3rem);
+}
+footer p { margin: 0; }
+
+.doc main { max-width: 42rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
+.doc h1 { margin: 0 0 0.5rem; font-size: clamp(2.25rem, 7vw, 3.25rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+.doc h2 { margin: 2rem 0 0.5rem; font-size: 1.375rem; font-weight: 800; }
+.doc p, .doc ul { margin: 0 0 0.75rem; }
+.doc code { font-size: 0.95em; overflow-wrap: anywhere; }
+
+@media (max-width: 52rem) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .points { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .moves button, .moves button::before { transition: none; }
+  .moves button:active { transform: none; }
+}

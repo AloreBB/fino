@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fino: tus quincenas en el teléfono</title>
+  <meta name="description" content="App Android para llevar ingresos, gastos y bolsillos por quincena. Funciona sin internet, respalda en tu Google Drive y puedes hablarle.">
+  <link rel="canonical" href="https://fino.alore.dev/">
+  <meta property="og:title" content="Fino: tus quincenas en el teléfono">
+  <meta property="og:description" content="Ingresos, gastos y bolsillos por quincena. Sin internet, con respaldo en tu Drive y por voz.">
+  <meta property="og:url" content="https://fino.alore.dev/">
+  <meta name="theme-color" content="#1a2350">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="pitch">
+        <p class="brand">Fino</p>
+        <h1>Tus quincenas, en tu bolsillo.</h1>
+        <p class="lede">Anota lo que entra y lo que sale, marca lo que ya pagaste y mira cuánto te queda. Sin abrir una hoja de cálculo en el teléfono.</p>
+        <!-- On release: replace this paragraph with a link to
+             https://github.com/AloreBB/fino/releases/latest/download/fino.apk and add the repo link. -->
+        <p class="status">Fino está en desarrollo. Pronto podrás descargar el APK para Android desde GitHub.</p>
+      </div>
+
+      <div class="sheet" id="demo">
+        <h2>Primera quincena</h2>
+        <p class="hint">Es una quincena de ejemplo. Toca un gasto para marcarlo como pagado.</p>
+        <ul class="moves">
+          <li><button type="button" aria-pressed="true" data-cents="60000000"><span>Renta</span><span class="amount"></span></button></li>
+          <li><button type="button" aria-pressed="true" data-cents="20000000"><span>Feria</span><span class="amount"></span></button></li>
+          <li><button type="button" aria-pressed="false" data-cents="9000000"><span>Luz</span><span class="amount"></span></button></li>
+          <li><button type="button" aria-pressed="false" data-cents="15000000"><span>Cuota de la tarjeta</span><span class="amount"></span></button></li>
+          <li><button type="button" aria-pressed="false" data-cents="10000000"><span>Para el ahorro</span><span class="amount"></span></button></li>
+        </ul>
+        <dl class="totals" aria-live="polite" data-income="120000000">
+          <div><dt>Ingresos</dt><dd id="t-income"></dd></div>
+          <div><dt>Egresos</dt><dd id="t-expenses"></dd></div>
+          <div><dt>Total pagado</dt><dd id="t-paid"></dd></div>
+          <div class="big"><dt>Saldo actual</dt><dd id="t-balance"></dd></div>
+          <div class="big"><dt>Me quedó</dt><dd id="t-left"></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="points">
+      <div>
+        <h2>Funciona sin internet</h2>
+        <p>Todo se guarda en tu teléfono. Agregas, editas y marcas pagos aunque no tengas señal.</p>
+      </div>
+      <div>
+        <h2>Tu copia queda en tu Drive</h2>
+        <p>Cuando hay conexión, Fino guarda una copia en tu Google Drive. Si pierdes el teléfono, la restauras desde allá.</p>
+      </div>
+      <div>
+        <h2>Le puedes hablar</h2>
+        <p>Di «compré una pizza de 30 mil con la tarjeta» y queda anotado. La voz necesita internet y tu propia cuenta de ElevenLabs.</p>
+      </div>
+      <div>
+        <h2>Bolsillos y plantilla</h2>
+        <p>Mira cuánto va a cada bolsillo, reparte tu salario por porcentajes y crea cada mes nuevo con tus gastos fijos ya puestos.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Hecho por <a href="https://alore.dev">Kevin Jovy</a>.</p>
+    <p><a href="/privacidad">Política de privacidad</a></p>
+  </footer>
+  <script src="/demo.js"></script>
+</body>
+</html>
